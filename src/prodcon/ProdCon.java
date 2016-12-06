@@ -30,6 +30,7 @@ class Producer extends Thread  {
         System.out.println("producing:"+num);
       q.put(num);}
   }
+ 
 }
 
 class Consumer extends Thread  {
@@ -58,7 +59,7 @@ class Consumer extends Thread  {
 
 public class ProdCon {
   public static void main(String args[]) {
-    CircleQueue q = new CircleQueue(10);
+    CircleQueue q = new CircleQueue(15);
     new Consumer(q);
     new Producer(q);
    
@@ -149,7 +150,7 @@ class CircleQueue<T> {
 	}
 
 	public boolean isEmpty() {
-		return tail == head && tail == 0 && elementData[tail] == -1;
+		return tail == head && tail == 0 && elementData[tail] == 0;
 	}
 
 	public boolean isFull() {
